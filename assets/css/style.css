@@ -25,6 +25,13 @@ textarea {
   white-space: pre-wrap;
 }
 
+#info {
+  padding: 5px;
+  color: black;
+  text-align: center;
+  height: 20px;
+}
+
 .time-block {
   text-align: center;
   border-radius: 15px;
@@ -70,16 +77,12 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 
-.lead {
+.subtitle {
   color: black;
   font-size: medium;
 }
 
-#H-Time {
+#large-time {
   color: #000000;
   font-size: x-large;
 }
-
-/* #timeEntry {
-
-} */

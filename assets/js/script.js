@@ -42,7 +42,7 @@ var containerEl = $("#container");
         for (i = 0; i < schedulerArray.length; i++) {
             blockTime = moment(schedulerArray[i], "H").format("hA");
             determineTense();
-            addTimeBlock();
+            updateTimeBlock();
         }
     }
 
@@ -58,8 +58,8 @@ var containerEl = $("#container");
         }
         console.log(tense)
 
-        // Function for adding the actual time block 
-        function addTimeBlock() {
+        // Function for adding the actual time block         
+        function updateTimeBlock() {
             var existingEntry = localStorage.getItem("hour-" + schedulerArray[i]);
             if (existingEntry === null) {
                 existingItem = "";

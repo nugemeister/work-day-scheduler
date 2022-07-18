@@ -33,13 +33,13 @@ THEN the saved events persist
 
 ## Link to Deployed Application
 
-The following link takes you to the deployed application: 
+The following link takes you to the deployed application: https://nugemeister.github.io/work-day-scheduler/
 <br></br>
 
 ## Finished Page for Reference
 
-The following image shows the web application's appearance and functionality: https://nugemeister.github.io/password-generator/
+The following video shows the web application's appearance and functionality:
 
-![This is a screenshot of the live webpage.](./assets/live-webpage-demo.gif)
+![This is a screencapture of the live webpage.](./assets/live-webpage-demo.gif)
 <br></br>
 

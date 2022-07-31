@@ -1,10 +1,12 @@
 // console.log('hello from file');
 
 // Universal Variables
-var textAreaTest = document.getElementsByTagName("textarea");
+var textArea = document.getElementsByTagName("textarea");
 var timeBlocks = $("#timeblocks");
 var jumbotronEl = $(".jumbotron");
 var infoEl = $("#info")
+
+console.log(textArea);
 
 // Variables for hour array table
 var schedulerArray = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
@@ -14,7 +16,7 @@ var i = 0;
 
 // DECLARE Current Time (in hour format - need this for tense determination later!)
 var currentHour = moment().format("H");
-console.log(currentHour)
+console.log(currentHour);
 
 // SHOW Current Time (at top of page)
 function showTime() {
@@ -35,16 +37,16 @@ var containerEl = $("#container");
 // Function for generating the schedule layout
 
     // RUN the function
-    generateSchedule();
+    // generateSchedule();
 
     //DEFINE the function
-    function generateSchedule() {
-        for (i = 0; i < schedulerArray.length; i++) {
-            blockTime = moment(schedulerArray[i], "H").format("hA");
-            determineTense();
-            updateTimeBlock();
-        }
-    }
+    // function generateSchedule() {
+    //     for (i = 0; i < schedulerArray.length; i++) {
+    //         blockTime = moment(schedulerArray[i], "H").format("hA");
+    //         determineTense();
+    //         updateTimeBlock();
+    //     }
+    // }
 
         // Determine if the time block is past, present, or future
         function determineTense() {
@@ -58,7 +60,8 @@ var containerEl = $("#container");
         }
         console.log(tense)
 
-        // Function for adding the actual time block         
+        // Function for adding the actual time block 
+        // do not append, target textarea to update
         function updateTimeBlock() {
             var existingEntry = localStorage.getItem("hour-" + schedulerArray[i]);
             if (existingEntry === null) {
@@ -74,9 +77,10 @@ var containerEl = $("#container");
 
             </div>
             `)
+            console.log(schedulerArray);
+            console.log(existingEntry);
+
         }
-        console.log(schedulerArray)
-        console.log(existingEntry)
 
 
     // Display the schedule layout
@@ -91,4 +95,4 @@ containerEl.on("click", "i, button", function(event) {
     infoEl.text((moment(buttonHour, "H").format("hA")) + " schedule saved to Local Storage.")
     setTimeout(textClear, 1000);
 });
-console.log(buttonHour)
+// console.log(buttonHour)

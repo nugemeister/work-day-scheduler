@@ -35,25 +35,27 @@ var containerEl = $("#container");
 
 // Determine if the time block id is past, present, or future
 function determineTense() {
-    if (document.getElementById("8,9,10,11,12,1,2,3,4,5,6,7") < currentHour) {
-        document.getElementById("8,9,10,11,12,1,2,3,4,5,6,7").classList.add('past');
-        tense = "past";
-    } else if (document.getElementById("textArea") == currentHour) {
-        document.getElementById("textArea").classList.add('present');
-        tense = "present";
-    } else {
-        document.getElementById("textArea").classList.add('future');
-        tense = "future";
-        console.log(tense)
+    for (i = 8; i < 18; i++) {
+        if (i < currentHour) {
+            document.getElementById(i).classList.add('past');
+            tense = "past";
+        } else if (i == currentHour) {
+            document.getElementById(i).classList.add('present');
+            tense = "present";
+        } else {
+            document.getElementById(i).classList.add('future');
+            tense = "future";
+            console.log(tense)
+        }
+    // LOCAL STORAGE - Click event for button that saves each time slot's data
+    $("#"+i+"-button").on("click", function(event) {
+        var buttonHour = $(event.target).data("hour");
+        localStorage.setItem(("hour-" + buttonHour), $("#" + buttonHour).val());
+        console.log("saved to local storage!")
+    });
+    $("#"+i).val(localStorage.getItem("hour-" + i))
     }
 }
+determineTense();
 
 
-// Click event for button that saves each time slot's data, displays temporary notice of schedule being saved.
-containerEl.on("click", "i, button", function(event) {
-    var buttonHour = $(event.target).data("hour");
-    localStorage.setItem(("hour-" + buttonHour), $("#" + buttonHour).val());
-    infoEl.text((moment(buttonHour, "H").format("hA")) + " schedule saved to Local Storage.")
-    setTimeout(textClear, 1000);
-    console.log("saved to local storage!")
-});
